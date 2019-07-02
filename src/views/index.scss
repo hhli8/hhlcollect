@@ -1,0 +1,26 @@
+.Home {
+    padding: 15px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    .modules {
+        flex-wrap: wrap;
+        border-bottom: 1px solid #DFDFDF;
+        padding-bottom: 10px;
+        .item-module {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 80px;
+            word-break: break-all;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            background: #BDBDBD;
+            overflow: hidden;
+            padding: 10px;
+            margin-right: 12px;
+            color: #fff;
+            a { color: #fff; }
+        }
+    }
+}

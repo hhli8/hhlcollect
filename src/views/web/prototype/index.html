@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="" />
+	</head>
+	<body>
+	  <div>原型，对象，类设计模式的比较</div>
+	</body>
+	<script>
+	  var People = function man () {
+	    this.operate()
+	  }
+	  People.prototype = {
+	    output: function (number) {
+	      console.log(number)
+	    },
+	    operate: function () {
+	      this.output(23)
+	    }
+	  }
+	  People()
+	</script>
+</html>

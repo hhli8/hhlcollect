@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,viewport-fit=cover">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=HbUVYMUg6PwbOnXkztdgSQlQ"></script>-->
+    <script type="text/javascript">
+      (function (win) {
+        var doc = win.document
+        var docEl = doc.documentElement
+        var metaEl = doc.querySelector('meta[name="viewport"]')
+        var dpr = 0
+        var scale = 0
+        var tid
+        if (metaEl) {
+          var match = metaEl.getAttribute('content').match(/initial\-scale=([\d\.]+)/)
+          if (match) {
+            scale = parseFloat(match[1])
+            dpr = parseInt(1 / scale)
+          }
+        }
+        docEl.setAttribute('data-dpr', dpr)
+        function refreshRem() {
+          var width = docEl.getBoundingClientRect().width
+          var rem = width / 10
+          docEl.style.fontSize = rem + 'px'
+        }
+        win.addEventListener('resize', function () {
+          clearTimeout(tid)
+          tid = setTimeout(refreshRem, 300)
+        }, false)
+        win.addEventListener('pageshow', function (e) {
+          if (e.persisted) {
+            clearTimeout(tid)
+            tid = setTimeout(refreshRem, 300)
+          }
+        }, false)
+        if (doc.readyState === 'complete') {
+          doc.body.style.fontSize = 12 * dpr + 'px'
+        } else {
+          doc.addEventListener('DOMContentLoaded', function (e) {
+            doc.body.style.fontSize = 12 * dpr + 'px'
+          }, false)
+        }
+        refreshRem()
+      })(window)
+    </script>
+    <title>demo</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but demo doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

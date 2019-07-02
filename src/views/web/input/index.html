@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scrollIntoView</title>
+    <link rel="stylesheet" href="https://fxss5201.cn/project/css/normalize.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+            font-family: "Microsoft YaHei", Arial, Helvetica, "宋体", sans-serif;
+            font-size: 14px;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        .clearfix:before,
+        .clearfix:after {
+            content: '.';
+            display: block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+            font-size: 0;
+            line-height: 0;
+        }
+        .clearfix:after {
+            clear: both;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+        .header {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 15px;
+            box-sizing: border-box;
+            color: #fff;
+            background: #999;
+        }
+        .body {
+            padding: 50px 15px;
+            width: 100%;
+            overflow-y: scroll;
+            box-sizing: border-box;
+            line-height: 30px;
+        }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            z-index: 10;
+            width: 100%;
+            height: 50px;
+            padding: 8px 15px 9px;
+            box-sizing: border-box;
+            background: #fff;
+            border-top: 1px solid #ddd;
+        }
+        .sure-btn {
+            padding: 0;
+            float: right;
+            margin-left: 10px;
+            width: 50px;
+            height: 32px;
+            color: #fff;
+            font-size: 14px;
+            background: #0FAEFF;
+            border: 0;
+            border-radius: 3px;
+            -webkit-appearance: none;
+        }
+        .ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+        .text-input {
+            box-sizing: border-box;
+            width: 100%;
+            height: 32px;
+            border-radius: 3px;
+            padding: 0 6px;
+            border: 1px solid #ddd;
+            -webkit-appearance: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">header</div>
+    <div class="body" id="body">
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+        body</br>
+    </div>
+    <div class="footer" id="footer">
+        <button class="sure-btn" id="sureBtn">确定</button>
+        <div class="ellipsis">
+            <input type="text" class="text-input" id="textInput">
+        </div>
+    </div>
+    <script src="https://fxss5201.cn/project/js/jquery-1.11.3.js"></script>
+    <script>
+        $(function () {
+            $("#textInput").on("focus", function () {
+                setTimeout(function () {
+                    $("#textInput")[0].scrollIntoView();
+                    $("#textInput")[0].scrollIntoViewIfNeeded();
+                }, 300);
+            });
+
+            $("#sureBtn").on("click", function () {
+                var textInputValur = $.trim($("#textInput").val());
+                $("#textInput").val("").focus();
+                var body = $("#body");
+                if (!textInputValur) {
+                    return false;
+                }
+                var str = $('<span>' + textInputValur + '</span></br>');
+                body.append(str);
+                setTimeout(function () {
+                    str[0].scrollIntoView();
+                    str[0].scrollIntoViewIfNeeded();
+                }, 300);
+            })
+        })
+    </script>
+    <script>
+      //
+      // 该方法在app全屏的环境下无效，全屏即状态栏高度是h5自定义的
+    </script>
+</body>
+
+</html>
