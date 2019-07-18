@@ -82,6 +82,11 @@ export default {
       path: 'es6',
       name: 'es6',
       component: resolve => { require(['@/views/web/es6'], resolve) }
+    },
+    {
+      path: 'pageWatcher',
+      name: 'PageWatcher',
+      component: resolve => { require(['@/views/web/pageWatcher'], resolve) }
     }
   ]
 }

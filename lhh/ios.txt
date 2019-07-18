@@ -1,0 +1,5 @@
+Date.parse兼容
+end = end.replace(/\-/g, '/')
+      start = start.replace(/\-/g, '/')
+      var st = Date.parse(new Date(start)) / 1000
+      var ed = Date.parse(new Date(end)) / 1000
