@@ -87,6 +87,16 @@ export default {
       path: 'pageWatcher',
       name: 'PageWatcher',
       component: resolve => { require(['@/views/web/pageWatcher'], resolve) }
+    },
+    {
+      path: 'event',
+      name: 'event',
+      component: resolve => { require(['@/views/web/event'], resolve) }
+    },
+    {
+      path: 'css3',
+      name: 'css3',
+      component: resolve => { require(['@/views/web/css'], resolve) }
     }
   ]
 }

@@ -24,7 +24,9 @@ export default {
         { name: 'js运行机制', id: 10009, path: 'JavaScript_2' },
         { name: 'vue的nextTick机制', id: 10010, path: 'nextTick' },
         { name: 'es6', id: 10011, path: 'es6' },
-        { name: '页面性能监控', id: 10012, path: 'pageWatcher' }
+        { name: '页面性能监控', id: 10012, path: 'pageWatcher' },
+        { name: '事件', id: 10013, path: 'event' },
+        { name: 'css3', id: 10014, path: 'css3' }
       ]
     }
   }
