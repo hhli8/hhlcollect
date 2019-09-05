@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover"><link rel=icon href=favicon.ico><script>(function (win) {
+        var doc = win.document
+        var docEl = doc.documentElement
+        var metaEl = doc.querySelector('meta[name="viewport"]')
+        var dpr = 0
+        var scale = 0
+        var tid
+        if (metaEl) {
+          var match = metaEl.getAttribute('content').match(/initial\-scale=([\d\.]+)/)
+          if (match) {
+            scale = parseFloat(match[1])
+            dpr = parseInt(1 / scale)
+          }
+        }
+        docEl.setAttribute('data-dpr', dpr)
+        function refreshRem() {
+          var width = docEl.getBoundingClientRect().width
+          var rem = width / 10
+          docEl.style.fontSize = rem + 'px'
+        }
+        win.addEventListener('resize', function () {
+          clearTimeout(tid)
+          tid = setTimeout(refreshRem, 300)
+        }, false)
+        win.addEventListener('pageshow', function (e) {
+          if (e.persisted) {
+            clearTimeout(tid)
+            tid = setTimeout(refreshRem, 300)
+          }
+        }, false)
+        if (doc.readyState === 'complete') {
+          doc.body.style.fontSize = 12 * dpr + 'px'
+        } else {
+          doc.addEventListener('DOMContentLoaded', function (e) {
+            doc.body.style.fontSize = 12 * dpr + 'px'
+          }, false)
+        }
+        refreshRem()
+      })(window)</script><title>demo</title><link href=css/chunk-0e9545c0.4ceff2c2.css rel=prefetch><link href=css/chunk-267321ea.631acf41.css rel=prefetch><link href=css/chunk-27bfa91e.2c07387b.css rel=prefetch><link href=css/chunk-35d7d4c2.9aa1fd4b.css rel=prefetch><link href=css/chunk-3bab7834.52202d8e.css rel=prefetch><link href=css/chunk-4484dbe7.0e433876.css rel=prefetch><link href=css/chunk-48ccf046.117f7cac.css rel=prefetch><link href=css/chunk-514e1c78.90eb5537.css rel=prefetch><link href=css/chunk-5191d86f.a0f9c858.css rel=prefetch><link href=css/chunk-5aed4a39.ff8a9c1e.css rel=prefetch><link href=css/chunk-6077b5bb.e4025b7c.css rel=prefetch><link href=css/chunk-65896fd0.7376cd0a.css rel=prefetch><link href=css/chunk-6a930c0a.4be10c1a.css rel=prefetch><link href=css/chunk-7206f894.4eef28e2.css rel=prefetch><link href=css/chunk-73d26cac.7f5a7e2a.css rel=prefetch><link href=css/chunk-7cb441a1.2c811d1b.css rel=prefetch><link href=css/chunk-7f290ab6.e24fa30f.css rel=prefetch><link href=css/chunk-d9f6edd2.fd60a0bc.css rel=prefetch><link href=js/chunk-0e9545c0.adb29252.js rel=prefetch><link href=js/chunk-267321ea.f76a8ca3.js rel=prefetch><link href=js/chunk-27bfa91e.978f0772.js rel=prefetch><link href=js/chunk-2d0b2c98.7099b36b.js rel=prefetch><link href=js/chunk-2d0c53c6.f68536f8.js rel=prefetch><link href=js/chunk-2d219fb3.8a0a1ad6.js rel=prefetch><link href=js/chunk-2d21ad75.7b95d052.js rel=prefetch><link href=js/chunk-35d7d4c2.c88ea8d2.js rel=prefetch><link href=js/chunk-3bab7834.8a5aea76.js rel=prefetch><link href=js/chunk-4484dbe7.2606f068.js rel=prefetch><link href=js/chunk-48ccf046.50e5a946.js rel=prefetch><link href=js/chunk-514e1c78.6be9a191.js rel=prefetch><link href=js/chunk-5191d86f.3fdb7fc5.js rel=prefetch><link href=js/chunk-5aed4a39.3f25a2f1.js rel=prefetch><link href=js/chunk-6077b5bb.359563c4.js rel=prefetch><link href=js/chunk-65896fd0.062146c7.js rel=prefetch><link href=js/chunk-6a930c0a.ac69d18c.js rel=prefetch><link href=js/chunk-7206f894.43299b97.js rel=prefetch><link href=js/chunk-73d26cac.150dc83d.js rel=prefetch><link href=js/chunk-7cb441a1.ba9b8162.js rel=prefetch><link href=js/chunk-7f290ab6.ac7c025c.js rel=prefetch><link href=js/chunk-d9f6edd2.ce9a83f3.js rel=prefetch><link href=css/app.a4f269ee.css rel=preload as=style><link href=css/chunk-vendors.d4c55800.css rel=preload as=style><link href=js/app.52c1f20f.js rel=preload as=script><link href=js/chunk-vendors.65e3c814.js rel=preload as=script><link href=css/chunk-vendors.d4c55800.css rel=stylesheet><link href=css/app.a4f269ee.css rel=stylesheet></head><body><noscript><strong>We're sorry but demo doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=js/chunk-vendors.65e3c814.js></script><script src=js/app.52c1f20f.js></script></body></html>
