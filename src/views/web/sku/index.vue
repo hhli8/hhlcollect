@@ -1,92 +1,72 @@
 <template>
   <div class="container">
-    <p class="title">sku使用说明：</p>
-    <div>skulists为sku列表集合，skuGoods为商品集合</div>
-    <sku :skuLists="skulists" :skuGoods="goods"></sku>
+    33333
+    <div>
+      <helloy @setColor="color"></helloy>
+    </div>
+    <div>
+      <muh-sku
+        :goodlist="goods"
+        :skulist="skus"
+        :option="skuOption">
+      </muh-sku>
+    </div>
   </div>
 </template>
 
 <script>
-import sku from './sku'
+import skuData from './skudata.js'
 export default {
+  name: '',
   components: {
-    sku
+    // sku
   },
   data () {
     return {
-      skulists: [],
-      goods: []
+      // sku组件
+      goods: [], // 商品列表
+      skus: [], // sku列表
+      skuOption: {} // 其他配置
     }
   },
-  mounted () {
+  created () {
     setTimeout(() => {
-      this.skulists = [
-        { name: '颜色', type: 'color', id: '', children: [
-          { name: '银白色', type: 'silver', id: '' },
-          { name: '红色', type: 'red', id: '' },
-          { name: '白色', type: 'white', id: '' }
-        ] },
-        { name: '尺寸', type: 'size', id: '', children: [
-          { name: '24', type: '', id: '' },
-          { name: '128', type: '', id: '' },
-          { name: '256', type: '', id: '' }
-        ] },
-        { name: '来源', type: 'source', id: '', children: [
-          { name: '天猫', type: '', id: '' },
-          { name: '京东', type: '', id: '' },
-          { name: '小象', type: '', id: '' }
-        ] }
-      ]
-      this.goods = [
-        { color: '银白色', size: '24', source: '天猫' },
-        { color: '银白色', size: '128', source: '天猫' },
-        { color: '银白色', size: '256', source: '天猫' },
-        { color: '银白色', size: '24', source: '京东' },
-        { color: '银白色', size: '128', source: '京东' },
-        { color: '银白色', size: '256', source: '京东' },
-        { color: '银白色', size: '24', source: '小象' },
-        { color: '银白色', size: '128', source: '小象' },
-        { color: '银白色', size: '256', source: '小象' },
-        //
-        { color: '红色', size: '24', source: '天猫' },
-        { color: '红色', size: '128', source: '天猫' },
-        { color: '红色', size: '256', source: '天猫' },
-        { color: '红色', size: '24', source: '京东' },
-        { color: '红色', size: '128', source: '京东' },
-        { color: '红色', size: '256', source: '京东' },
-        { color: '红色', size: '24', source: '小象' },
-        { color: '红色', size: '128', source: '小象' },
-        { color: '红色', size: '256', source: '小象' },
-        //
-        { color: '白色', size: '24', source: '天猫' },
-        { color: '白色', size: '128', source: '天猫' },
-        { color: '白色', size: '256', source: '天猫' },
-        { color: '白色', size: '24', source: '京东' },
-        { color: '白色', size: '128', source: '京东' },
-        { color: '白色', size: '256', source: '京东' },
-        { color: '白色', size: '24', source: '小象' },
-        { color: '白色', size: '128', source: '小象' },
-        { color: '白色', size: '256', source: '小象' }
-      ]
-    }, 200)
+      this.goods = skuData.goods
+      this.skus = skuData.skus
+      this.skuOption = {
+        degood: {
+          img: 'https://cbu01.alicdn.com/img/ibank/2018/420/661/8608166024_582723176.jpg',
+          price: 6500, // 分
+          id: '12asdqewasdad',
+          none_sku: true // 是否sku商品
+        }, // 默认显示数据*
+        needInit: false, // 每次在弹窗里打开是否需要初始化
+        stockflag: false, // 是否开启库存逻辑*
+        structure: {
+          name: 'pname',
+          id: 'pid',
+          children: 'values',
+          cstructure: {
+            name: 'vname',
+            id: 'vid',
+            pricekey: 'price',
+            oripricekey: 'oripricekey'
+          }
+        }
+      }
+    }, 500)
+  },
+  mounted () {
+    //
+  },
+  methods: {
+    color (x) {
+      console.log(x)
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped="scoped">
-.container {
-  padding: 20px;
-  min-height: 100vh;
-  background: #F7F7F7;
-  box-sizing: border-box;
-  font-size: 32px;
-  .title {
-    font-size: 34px;
-    margin-bottom: 20px;
-  }
-  .des {
-    color: #636363;
-    margin-bottom: 10px;
-  }
-}
+
 </style>
