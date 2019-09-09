@@ -30,7 +30,8 @@ export default {
     })
   },
   methods: {
-    //
+    // 发布命令：https://www.cnblogs.com/MuYunyun/p/6082359.html
+    // git subtree push --prefix=dist origin gh-pages
   }
 }
 </script>
